@@ -1,0 +1,21 @@
+This is the wallet used in the server
+Private Key is used to sign a message with the script hashAndSignMessage at server/scripts/hashAndSignMessage.js
+Public Key is used to verify the signature in the server
+Address is used to see your balance and to hash and sign transactions at server/scripts/hashAndSignTransaction.js
+
+1)
+Private Key :  1d211cb10357378cc7485c43537c8d8f5f56e61a4f344aab4670519f1c6a03a7
+Public Key :  043dc1113320dcefcb061ded03da262656161118f8cb4690cdb5bccfe1f0c4ee5ab955e492843ba8cf52094d3a0c193e36be9c027a8bd9f013107599ed17a47ce3
+Address :  0xe3dcf2110ca71260ddd455c9d29a84ded9d99f8fda9c35820fb91ba1a608fcdf
+
+
+2)
+Private Key :  9a481e6992fa5835778de92212566cb5c8b0a23130d36cbf1b3d87acf8c5dc05
+Public Key :  04bc0f9e641de798b04e6488dd8f8574875ad412d695cab437b113db1799d8e6c1350d0d06991e11c44862b25ff2900a7e6fe319b8a2f8884edf9b6c7174cebd02
+Address :  0x8e093e4fe9b96645f20707fe2e610b92043919db7dcda9c6fa56bb458119490b
+
+
+3)
+Private Key :  4e21838b544ce50e49dd9d45208d50f92909c57493d8cf74bbdaf917b71a42b3
+Public Key :  0431ce78c85a54360c373563cd65648464f2db01d1200257bec20d29b042fa818fa824d8bb97a484205235c8201ff4a8423f8567ef36650427faad4825b3522c85
+Address :  0x856e559a4a06019d94292c1dcdaaaed3a3eb31e27cb694fe8a768d7546fce7a9
