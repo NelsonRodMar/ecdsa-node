@@ -14,37 +14,41 @@ const balances = {
     "0x8e093e4fe9b96645f20707fe2e610b92043919db7dcda9c6fa56bb458119490b": 50,
     "0x856e559a4a06019d94292c1dcdaaaed3a3eb31e27cb694fe8a768d7546fce7a9": 75,
 };
+let address;
 
 app.get("/balance/:address", (req, res) => {
-    const {address} = req.params;
+    address = req.params.address;
     const balance = balances[address] || 0;
     res.send({balance});
 });
 
 app.post("/send", (req, res) => {
-    const {sender, recipient, amount, signature, recoveryBit, publicKey} = req.body;
-    console.log("Sender : ", sender);
+    if (address == undefined || address == null) {
+        res.status(400).send({message: "No address provided, need to get balance first !"});
+    }
+    const {recipient, amount, signature, recoveryBit, publicKey} = req.body;
+    console.log("Sender : ", address);
     console.log("Recipient : ", recipient);
     console.log("Amount : ", amount);
     console.log("Signature : ", signature);
     console.log("Recovery Bit : ", recoveryBit);
 
     let message = {
-        from: sender,
+        from: address,
         to: recipient,
         amount: amount,
     };
     const messageHash = keccak256(utf8ToBytes(JSON.stringify(message)));
     const recoverKey = secp.recoverPublicKey(messageHash, signature, recoveryBit);
-    setInitialBalance(sender);
+    setInitialBalance(address);
     setInitialBalance(recipient);
     if (toHex(recoverKey) === publicKey) {
-        if (balances[sender] < amount) {
-            res.status(400).send({message: "Not enough funds in " + sender + " wallet !"});
+        if (balances[address] < amount) {
+            res.status(400).send({message: "Not enough funds in " + address + " wallet !"});
         } else {
-            balances[sender] -= amount;
+            balances[address] -= amount;
             balances[recipient] += amount;
-            res.send({balance: balances[sender]});
+            res.send({balance: balances[address]});
         }
     } else {
         res.status(400).send({message: "Not the right signature !"});
