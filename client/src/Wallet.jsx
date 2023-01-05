@@ -27,7 +27,7 @@ function Wallet({ address, setAddress, privateKey, setPrivateKey, publicKey, set
 
       <label>
         Private Key
-        <input placeholder="Type a private key, for example: 0x1" value={privateKey} onChange={onChange}></input>
+        <input placeholder="Type a private key, for example: 1d211cb10357378cc7485c43537c8d8f5f56e61a4f344aab4670519f1c6a03a7" value={privateKey} onChange={onChange}></input>
       </label>
 
       <div>
